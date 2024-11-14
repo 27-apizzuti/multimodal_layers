@@ -1,0 +1,24 @@
+# // In vivo ME3DEPI at 0.175 iso mm
+README: Once th segmentation is polished (subset of 200 slices per hemisphere), extract GM and use VORONOI to propagate CBA-defined ROIs 
+
+cd /mnt/d/AHEAD_v2/derivatives/T2star_in-vivo/22_segmentation_crop_whole_brain
+
+# Left hemisphere
+fslmaths seg-01_LH_rim_polished_polished_61_230_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished.nii.gz -thr 3 seg-01_LH_rim_polished_polished_61_230_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_bin.nii.gz
+
+LN2_VORONOI -init sub-01_visual_areas_hMT_plus_capsule_LH_bvbabel_ups2X.nii.gz -domain seg-01_LH_rim_polished_polished_61_230_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_bin.nii.gz -output sub-01_visual_areas_hMT_plus_capsule_LH_bvbabel_ups2X_VORONOI.nii.gz
+
+fslmaths sub-01_visual_areas_hMT_plus_capsule_LH_bvbabel_ups2X_VORONOI.nii.gz -mas seg-01_LH_rim_polished_polished_61_230_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_bin.nii.gz sub-01_visual_areas_hMT_plus_capsule_LH_bvbabel_ups2X_VORONOI.nii.gz
+
+fslmaths sub-01_visual_areas_hMT_plus_capsule_LH_bvbabel_ups2X_VORONOI.nii.gz -uthr 4 sub-01_visual_areas_hMT_plus_capsule_LH_bvbabel_ups2X_VORONOI_no_capsule.nii.gz
+
+# --------------------------
+# Right hemisphere
+
+fslmaths seg-01_RH_rim_WIP_AP_polished_85_240_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished.nii.gz -thr 3 seg-01_RH_rim_WIP_AP_polished_85_240_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_bin.nii.gz
+
+LN2_VORONOI -init sub-01_visual_areas_hMT_plus_capsule_RH_bvbabel_ups2X.nii.gz -domain seg-01_RH_rim_WIP_AP_polished_85_240_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_bin.nii.gz -output sub-01_visual_areas_hMT_plus_capsule_RH_bvbabel_ups2X_VORONOI.nii.gz
+
+fslmaths sub-01_visual_areas_hMT_plus_capsule_RH_bvbabel_ups2X_VORONOI.nii.gz -mas seg-01_RH_rim_WIP_AP_polished_85_240_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_bin.nii.gz sub-01_visual_areas_hMT_plus_capsule_RH_bvbabel_ups2X_VORONOI.nii.gz
+
+fslmaths sub-01_visual_areas_hMT_plus_capsule_RH_bvbabel_ups2X_VORONOI.nii.gz -uthr 4 sub-01_visual_areas_hMT_plus_capsule_RH_bvbabel_ups2X_VORONOI_no_capsule.nii.gz

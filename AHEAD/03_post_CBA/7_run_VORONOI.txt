@@ -1,0 +1,21 @@
+# README: Once the segmentation is polished (subset of 50 slices per hemisphere), extract GM and use VORONOI to propagate CBA-defined ROIs.
+# Using VORONOI will assure that the projection of the CBA-defined ROIs (from BrainVoyager) is done correctly 
+# Repeat for the left and right hemisphere
+
+Go to folder: D:\AHEAD_v2\derivatives\122017\RH\03_Layers\RH
+
+fslmaths Ahead_brain_122017_RH_RIM_polished_cut_22_72_2D_polished.nii.gz -thr 3 Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz
+
+# V1, V2, V3
+LN2_VORONOI -init Ahead_brain_122017_RH_visAtlas-short_plus_capsule_bvbabel_to_02_cut.nii.gz -domain Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz -output Ahead_brain_122017_RH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI.nii.gz
+
+fslmaths Ahead_brain_122017_LH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI.nii.gz -mas Ahead_brain_122017_LH_RIM_polished_GM_bin.nii.gz Ahead_brain_122017_LH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI.nii.gz
+
+fslmaths Ahead_brain_122017_LH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI.nii.gz -uthr 4 Ahead_brain_122017_LH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI_nocapsule.nii.gz
+
+# hMT
+LN2_VORONOI -init Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut.nii.gz -domain Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz -output Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI.nii.gz
+
+fslmaths Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI.nii.gz -mas Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI.nii.gz
+
+fslmaths Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI.nii.gz -uthr 1 Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI_nocapsule.nii.gz

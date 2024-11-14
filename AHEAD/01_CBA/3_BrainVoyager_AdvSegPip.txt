@@ -1,0 +1,12 @@
+In BrainVoyager:
+
+- Load the VMR and invert intensity (Contrast menu)
+- Proceed with ISO 0.5 and ACPC transformation
+- Compute but not apply Talairach transformation
+- Advanced Segmentation pipeline
+- Generate WM segmentation file and export nifti
+
+- Manual edits on WM nifti
+- Convert nifti to VMR
+- Reconstruct surfaces
+

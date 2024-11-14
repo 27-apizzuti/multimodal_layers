@@ -1,0 +1,41 @@
+# // In vivo ME3DEPI at 0.175 iso mm
+cd /mnt/d/AHEAD_v2/derivatives/T2star_in-vivo/03_layers/
+
+#// Left hemisphere
+# Crop the data before running
+fslroi seg-01_LH_rim_polished_polished_61_230_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished.nii.gz seg-01_LH_rim_polished_polished_61_230_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_cut.nii.gz 330 480 10 320 140 600
+
+fslroi sub-01_visual_areas_hMT_plus_capsule_LH_bvbabel_ups2X_VORONOI_no_capsule_clean.nii.gz sub-01_visual_areas_hMT_plus_capsule_LH_bvbabel_ups2X_VORONOI_no_capsule_clean_cut.nii.gz 330 480 10 320 140 600
+
+fslroi sub-01_part-mag_MP2RAGE_uni_beta-20_CURED_n5_s0pt5_r1pt0_g1_masked_stitched_composite-max07_reg_to_T2star_ups2X_crop.nii.gz sub-01_part-mag_MP2RAGE_uni_beta-20_CURED_n5_s0pt5_r1pt0_g1_masked_stitched_composite-max07_reg_to_T2star_ups2X_crop_LH_cut.nii.gz 330 480 10 320 140 600
+
+fslroi sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_T2s.nii.gz sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_T2s_LH_cut.nii.gz 330 480 10 320 140 600
+
+fslroi sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_echo-mean.nii.gz sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_echo-mean_LH_cut.nii.gz 330 480 10 320 140 600
+
+fslroi sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_S0.nii.gz sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_S0_LH_cut.nii.gz 330 480 10 320 140 600
+
+fslroi sub-04_task-rest_acq-2depimb2_run-01_SCSTBL_3DMCTS_bvbabel_undist_fix_THPGLMF5c_sess-02_BBR_mean_res2X_fixdim_reg-nonlin.nii.gz sub-04_task-rest_acq-2depimb2_run-01_SCSTBL_3DMCTS_bvbabel_undist_fix_THPGLMF5c_sess-02_BBR_mean_res2X_fixdim_reg-nonlin_LH_cut.nii.gz 330 480 10 320 140 600
+
+# Computing layers
+LN2_LAYERS -rim seg-01_LH_rim_polished_polished_61_230_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_cut.nii.gz -equivol -streamlines
+#---------------------------------------------
+#// Right hemisphere
+
+# Crop the data before running
+fslroi seg-01_RH_rim_WIP_AP_polished_85_240_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished.nii.gz seg-01_RH_rim_WIP_AP_polished_85_240_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_cut.nii.gz 1 420 10 320 140 600
+
+fslroi sub-01_visual_areas_hMT_plus_capsule_RH_bvbabel_ups2X_VORONOI_no_capsule_clean.nii.gz sub-01_visual_areas_hMT_plus_capsule_RH_bvbabel_ups2X_VORONOI_no_capsule_clean_cut.nii.gz 1 420 10 320 140 600
+
+fslroi sub-01_part-mag_MP2RAGE_uni_beta-20_CURED_n5_s0pt5_r1pt0_g1_masked_stitched_composite-max07_reg_to_T2star_ups2X_crop.nii.gz sub-01_part-mag_MP2RAGE_uni_beta-20_CURED_n5_s0pt5_r1pt0_g1_masked_stitched_composite-max07_reg_to_T2star_ups2X_crop_cut.nii.gz 1 420 10 320 140 600
+
+fslroi sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_T2s.nii.gz sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_T2s_RH_cut.nii.gz 1 420 10 320 140 600
+
+fslroi sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_echo-mean.nii.gz sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_echo-mean_RH_cut.nii.gz 1 420 10 320 140 600
+
+fslroi sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_S0.nii.gz sub-01_part-mag_ME3DEPI_crop_ups2X_prepped_reg_S0_RH_cut.nii.gz 1 420 10 320 140 600
+
+fslroi sub-04_task-rest_acq-2depimb2_run-01_SCSTBL_3DMCTS_bvbabel_undist_fix_THPGLMF5c_sess-02_BBR_mean_res2X_fixdim_reg-nonlin.nii.gz sub-04_task-rest_acq-2depimb2_run-01_SCSTBL_3DMCTS_bvbabel_undist_fix_THPGLMF5c_sess-02_BBR_mean_res2X_fixdim_reg-nonlin_RH_cut.nii.gz 1 420 10 320 140 600
+
+# Computing layers
+LN2_LAYERS -rim seg-01_RH_rim_WIP_AP_polished_85_240_coronal_ups2X_crop_polished_v-03_3D_polished_farukv01_polished_cut.nii.gz -equivol -streamlines

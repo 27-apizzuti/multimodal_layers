@@ -1,0 +1,15 @@
+- Reconstruct surfaces at 200K vertices
+- Proceed with CBA pipeline
+- Project atlas (visfatlas) in POI format to subject space -> atlas_poi_to_average_step1.m + average_poi_to_subject_step2.m
+- Convert POI to VOI using POI-GUI menu (here we are still at ISO ACPC)
+- Write VOI in VMR
+
+We need to go back to the native space:
+
+- Compute transformation matrix between BV_ISO_ACPC e native in ITK-SNAP
+
+Here use:
+- 'moving': Ahead_brain_122017_blockface-image_bvbabel_no_inverted_pt5_ACPC_bvbabel.nii.gz
+- 'fixed': Ahead_brain_122017_blockface-image.nii.gz
+
+Run ITK registration and save the transformation matrix.

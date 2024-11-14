@@ -1,0 +1,26 @@
+# // Final VORONOI subset of 50 slices
+Go to folder: D:\AHEAD_v2\derivatives\122017\04_qMRI\RH\V1V2V3\segmentation
+
+fslmaths Ahead_brain_122017_RH_RIM_polished_cut_141_190_and_22_72_warped_2D_polished.nii.gz -thr 3 Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz
+
+# V1, V2, V3
+LN2_VORONOI -init Ahead_brain_122017_RH_visAtlas-short_plus_capsule_bvbabel_to_02_cut.nii.gz -domain Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz -output Ahead_brain_122017_RH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI.nii.gz
+
+fslmaths Ahead_brain_122017_RH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI.nii.gz -mas Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz Ahead_brain_122017_RH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI.nii.gz
+
+fslmaths Ahead_brain_122017_RH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI.nii.gz -uthr 4 Ahead_brain_122017_RH_visAtlas-short_plus_capsule_bvbabel_to_02_cut_VORONOI_nocapsule.nii.gz
+
+# hMT
+LN2_VORONOI -init Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut.nii.gz -domain Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz -output Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI.nii.gz
+
+fslmaths Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI.nii.gz -mas Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI.nii.gz
+
+fslmaths Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI.nii.gz -uthr 1 Ahead_brain_122017_MTatlas_capsule_RH_bvbabel_to_02_cut_VORONOI_nocapsule.nii.gz
+
+
+# // propagate angular measure to GM
+
+LN2_VORONOI -init /mnt/d/AHEAD_v2/derivatives/122017/04_qMRI/RH/02_segmentation/cutting_angles/Ahead_brain_122017_RH_RIM_polished_cut_141_190_and_22_72_warped_2D_polished_final_polished_streamline_vectors_CUTangdif.nii.gz -domain /mnt/d/AHEAD_v2/derivatives/122017/04_qMRI/RH/02_segmentation/cutting_angles/Ahead_brain_122017_RH_RIM_polished_GM_bin.nii.gz
+
+
+LN2_VORONOI -init /mnt/d/AHEAD_v2/derivatives/122017/04_qMRI/LH/02_segmentation/cutting_angles/Ahead_brain_122017_LH_RIM_polished_cut_43_93_121_171_2D_polished_warped_ML_manual_faruk_polished_streamline_vectors_CUTangdif.nii.gz -domain /mnt/d/AHEAD_v2/derivatives/122017/04_qMRI/LH/02_segmentation/cutting_angles/Ahead_brain_122017_LH_RIM_polished_GM_bin.nii.gz

@@ -1,0 +1,4 @@
+# Make iso-voxel transformation 
+# Original blockfase has resolution 0.15 x 0.15 x 0.2 mm
+
+c3d Ahead_brain_122017_blockface-image.nii.gz -interpolation NeirestNeighbor -resample-mm 0.15x0.15x0.15 mm -o Ahead_brain_122017_blockface-image_ISO.nii.gz

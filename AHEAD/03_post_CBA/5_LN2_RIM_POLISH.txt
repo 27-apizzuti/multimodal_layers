@@ -1,0 +1,5 @@
+# Apply after manual edits
+
+LN2_RIM_POLISH -rim /mnt/d/AHEAD_v2/derivatives/122017/01_ROI/Volume_ROI_visAtlas-to-AHEAD/Ahead_brain_122017_RH_RIM.nii.gz
+
+LN2_RIM_POLISH -rim /mnt/d/AHEAD_v2/derivatives/122017/02_Segmentation/LH/CUT/Ahead_brain_122017_LH_RIM_polished_ext_cut.nii.gz

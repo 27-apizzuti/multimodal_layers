@@ -1,9 +1,0 @@
-In BrainVoyager:
--load .glm --> BV_9_loadGLM_crossValidation.py (open 2 vmr: BOLD and VASO)
--open menu CTRL+Y: Overlay GLM contrast
-	-load .CRT --> "D:\Pilot_Exp_VASO\pilotAOM\sub-02\derivatives\func\AOM\vaso_analysis\Contrast_5vmp_forWinnerMaps.ctr"
-	-check "overlay all contrasts" in the
-	-OK
--open menu CTRL+M: Volume Maps
-	-save as: "VASO_meanRuns_noNORDIC.vmp"
-	-save as: "BOLD_meanRuns_noNORDIC.vmp"

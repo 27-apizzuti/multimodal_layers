@@ -1,4 +1,6 @@
-# Analysis pipeline accompanying "Multimodal laminar characterization of visual areas along the cortical hierarchy" manuscript
+# Multimodal laminar characterization of visual areas along the cortical hierarchy
+
+Data processing scripts for [Multimodal laminar characterization of visual areas along the cortical hierarchy]
 
 # Core dependences
 

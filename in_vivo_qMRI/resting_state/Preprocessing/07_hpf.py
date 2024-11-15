@@ -13,7 +13,7 @@ SUBJ = ["sub-04"]
 SESS = [2]
 TASK = ["rest"]
 
-HPF_CUTOFF = 5
+HPF_CUTOFF = 3
 
 for su in SUBJ:
     PATH_FMR = os.path.join(STUDY_PATH, su, 'derivatives', 'func')
